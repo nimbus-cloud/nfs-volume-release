@@ -109,3 +109,6 @@
 [submodule "src/code.cloudfoundry.org/service-broker-store"]
 	path = src/code.cloudfoundry.org/service-broker-store
 	url = https://github.com/cloudfoundry/service-broker-store.git
+[submodule "src/capi-release"]
+	path = src/capi-release
+	url = https://github.com/cloudfoundry/capi-release

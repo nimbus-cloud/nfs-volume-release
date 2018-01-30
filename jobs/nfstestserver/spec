@@ -4,6 +4,7 @@ name: nfstestserver
 templates:
   install.erb: bin/pre-start
   ctl.erb: bin/nfstestserver_ctl
+  nfs_backup.sh.erb: bin/nfs_backup.sh
 
 packages: []
 
@@ -14,3 +15,5 @@ properties:
  nfstestserver.export_root_path:
     description: "NFS root path"
     default: "/var/vcap/store/nfstestserver"
+ nfstestserver.export_backup_path:
+    description: "NFS backup path"
