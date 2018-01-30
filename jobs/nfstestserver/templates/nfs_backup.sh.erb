@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -e -x
+
+TODAY_DATE=$(date +"%F_%H-%M-%S")
+EXPORTS_DIR=<%= p("nfstestserver.export_root_path") %>
+BACKUP_PATH=<%= p("nfstestserver.export_backup_path") %>
+
+if [[ "$EXPORTS_DIR" == "" ]]; then
+    echo "EXPORTS_DIR not defined"
+    exit 1
+fi
+
+if [[ "$BACKUP_PATH" == "" ]]; then
+    echo "BACKUP_PATH not defined"
+    exit 1
+fi
+
+if [ -d  "$BACKUP_PATH" ]
+then
+echo "$BACKUP_PATH already exist"
+else
+mkdir -p "$BACKUP_PATH"
+fi
+
+echo "Deleting backups that are older than 30 days..."
+find $BACKUP_PATH -mtime 30 -type f -exec rm -rf {} \;
+
+echo "Creating backup $TODAY_DATE in $BACKUP_PATH..."
+tar -zcvf "$BACKUP_PATH/$TODAY_DATE.tar.gz" "$EXPORTS_DIR"
+
+exit 0
