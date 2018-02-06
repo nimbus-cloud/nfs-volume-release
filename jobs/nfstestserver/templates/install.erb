@@ -41,6 +41,6 @@ cat << EOF > /etc/exports
 /export2/certs <%= p("nfstestserver.export_cidr") %>(rw,nohide,no_subtree_check,async,insecure)
 EOF
 
-cp /var/vcap/jobs/nfstestserver/bin/nfs_backup.sh /etc/cron.daily
+cp /var/vcap/jobs/nfstestserver/bin/nfs_backup /etc/cron.daily
 
 exit 0

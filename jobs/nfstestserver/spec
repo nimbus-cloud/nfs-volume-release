@@ -4,7 +4,7 @@ name: nfstestserver
 templates:
   install.erb: bin/pre-start
   ctl.erb: bin/nfstestserver_ctl
-  nfs_backup.sh.erb: bin/nfs_backup.sh
+  nfs_backup.erb: bin/nfs_backup
 
 packages: []
 
